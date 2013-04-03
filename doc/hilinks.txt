@@ -1,8 +1,8 @@
-*hilinks.txt*	Highlighting Links				Feb 23, 2009
+*hilinks.txt*	Highlighting Links				Feb 28, 2013
 
-Author:  Charles E. Campbell, Jr.  <NdrOchip@ScampbellPfamily.AbizM>
+Author:  Charles E. Campbell  <NdrOchip@ScampbellPfamily.AbizM>
 	  (remove NOSPAM from Campbell's email first)
-Copyright: (c) 2008 by Charles E. Campbell, Jr.	*hilinks-copyright*
+Copyright: (c) 2008-2013 by Charles E. Campbell		*hilinks-copyright*
            The VIM LICENSE applies to hilinks.vim, and hilinks.txt
            (see |copyright|) except use "hilinks" instead of "Vim"
 	   NO WARRANTY, EXPRESS OR IMPLIED.  USE AT-YOUR-OWN-RISK.
@@ -28,9 +28,22 @@ COMMANDS					*:HLT* *:HLT!* *:HLTm*
 	        so one can see the highlighting trace and syntax stack as
 		one moves the cursor.  The next :HLT! will toggle this mode
 		off.
+		May enable mouse-based balloons, too (see |hilinks_beval|).
 	:HLTm : same as :HLT! (provided so AsNeeded can trigger off it)
 	
 	NOTE: Vim 7.1 with patch#215 required for the syntax stack.
+
+BEVAL						*hilinks-beval*
+	By default and with |:HLT!|, if your vim supports |'beval'|, hilinks will enable
+	beval and install a ballon expression (|'bexpr'|).  You can
+	prevent that by putting >
+		let g:hilinks_nobeval= 1
+<	into your .vimrc .
+
+	This feature means that a hovering mouse will show a highlighting
+	trace when |:HLT!| is used to enable syntax and highlighting tracing
+	as you move the cursor.
+	
 
 ==============================================================================
 3. History					*hilinks-history*
@@ -40,6 +53,7 @@ COMMANDS					*:HLT* *:HLT!* *:HLTm*
 	May 20, 2008	* (bugfix) wasn't working when patch#215 was missing
 	Feb 23, 2009	* (bugfix) the map was missing the new argument
 			* :HLTm implemented (so AsNeeded can use :HLTm)
+	Feb 28, 2013	* |'beval'| usage implemented
 
 ==============================================================================
 Modelines: {{{1
