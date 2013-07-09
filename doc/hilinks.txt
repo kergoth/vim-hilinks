@@ -1,4 +1,4 @@
-*hilinks.txt*	Highlighting Links				Feb 28, 2013
+*hilinks.txt*	Highlighting Links				Apr 03, 2013
 
 Author:  Charles E. Campbell  <NdrOchip@ScampbellPfamily.AbizM>
 	  (remove NOSPAM from Campbell's email first)
@@ -28,8 +28,12 @@ COMMANDS					*:HLT* *:HLT!* *:HLTm*
 	        so one can see the highlighting trace and syntax stack as
 		one moves the cursor.  The next :HLT! will toggle this mode
 		off.
-		May enable mouse-based balloons, too (see |hilinks_beval|).
+		May enable mouse-based balloons, too (see |hilinks-beval|).
 	:HLTm : same as :HLT! (provided so AsNeeded can trigger off it)
+	:HLTX : like :HLT, but also converts the colors into an xterm-256-color
+	        index
+	:HLTX!: like :HLT!, but also converts the colors into an xterm-256-color
+	        index
 	
 	NOTE: Vim 7.1 with patch#215 required for the syntax stack.
 
@@ -54,6 +58,7 @@ BEVAL						*hilinks-beval*
 	Feb 23, 2009	* (bugfix) the map was missing the new argument
 			* :HLTm implemented (so AsNeeded can use :HLTm)
 	Feb 28, 2013	* |'beval'| usage implemented
+	Apr 03, 2013	* included :HLTX and :HLTX! commands
 
 ==============================================================================
 Modelines: {{{1
