@@ -1,4 +1,4 @@
-*hilinks.txt*	Highlighting Links				Apr 03, 2013
+*hilinks.txt*	Highlighting Links				Feb 18, 2016
 
 Author:  Charles E. Campbell  <NdrOchip@ScampbellPfamily.AbizM>
 	  (remove NOSPAM from Campbell's email first)
@@ -59,6 +59,7 @@ BEVAL						*hilinks-beval*
 			* :HLTm implemented (so AsNeeded can use :HLTm)
 	Feb 28, 2013	* |'beval'| usage implemented
 	Apr 03, 2013	* included :HLTX and :HLTX! commands
+	Feb 18, 2016	* Change =~ to =~# where appropriate
 
 ==============================================================================
 Modelines: {{{1

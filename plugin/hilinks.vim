@@ -2,8 +2,8 @@
 "              highlighting groups link to what highlighting groups
 "
 "  Author:		Charles E. Campbell <NdrOchipS@PcampbellAfamily.Mbiz>
-"  Date:		Apr 03, 2013
-"  Version:		4l	ASTRO-ONLY
+"  Date:		Jan 10, 2008 - Feb 18, 2016
+"  Version:		4m	ASTRO-ONLY
 "
 "  NOTE:        This script requires Vim 6.0 (or later)
 "               Works best with Vim 7.1 with patch#215
@@ -26,7 +26,7 @@
 if exists("g:loaded_hilinks") || &cp
   finish
 endif
-let g:loaded_hilinks= "v4l"
+let g:loaded_hilinks= "v4m"
 if v:version < 700
  echohl WarningMsg
  echo "***warning*** this version of hilinks needs vim 7.0"
@@ -61,6 +61,9 @@ endif
 " ---------------------------------------------------------------------
 " HiLinkTrace: this function traces the highlighting group names {{{1
 "             from transparent/top level through to the bottom
+"             always=0:
+"                   =1: installs autocmd, supporting HiLinkTrace calling on cursor moves
+"                   =2: initialize with top-level highlighting
 fun! <SID>HiLinkTrace(always)
 "  call Dfunc("HiLinkTrace(always=".a:always.")")
 
@@ -106,7 +109,7 @@ fun! <SID>HiLinkTrace(always)
    while curlink != lastlink && no_overflow < 10
    	let no_overflow = no_overflow + 1
    	let nxtlink     = substitute(@a,'^.*\<'.curlink.'\s\+xxx links to \(\a\+\).*$','\1','')
-	if nxtlink =~ '\<start=\|\<cterm[fb]g=\|\<gui[fb]g='
+	if nxtlink =~# '\<start=\|\<cterm[fb]g=\|\<gui[fb]g='
 	 let nxtlink= substitute(nxtlink,'^[ \t\n]*\(\S\+\)\s\+.*$','\1','')
    	 let hilink = hilink ."->". nxtlink
 	 break
